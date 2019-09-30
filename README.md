@@ -9,7 +9,7 @@ A proposta dessa atividade visa complementação do plano de formação de está
 
 Uma vez tendo o git instalado no computador execute no terminal os passos abaixo. Caso não tenha, siga os passos deste tutorial: https://www.atlassian.com/git/tutorials/install-git
 
-1. ~$ git clone https://rodrigorochards@bitbucket.org/rochards/projeto-plataformas-02.git
+1. ~$ git clone https://github.com/rochards/loja.git
 
 ---
 
