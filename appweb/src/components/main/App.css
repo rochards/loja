@@ -1,0 +1,47 @@
+:root { /*estou criando uma pseudo classe chamada root para definir algumas variáveis*/
+    --header-height: 50px; /*variável para definir altura do cabeçalho*/
+    --aside-width: 200px; /*variável para definir o largura do menu de navegação*/
+    --footer-height: 40px; /*variável para definir a altura do rodapé*/
+
+    --shadow:
+        0 2px 23px 0 rgba(0, 0, 0, 0.1),
+        0 2px 49px 0 rgba(0, 0, 0, 0.06);
+}
+
+* { /* o * significa configuração geral */
+    box-sizing: border-box; /*para dúvidas nessa configuração acesse https://www.w3schools.com/css/css3_box-sizing.asp */
+}
+
+.app { /* Configurando a div que tem classe app. Essa div está no App.jsx */
+    display: grid; /*vai dividir a div em uma grade*/
+    grid-template-columns: 200px 1fr; /*aqui define quantas colunas tem essa grade.
+                                                    vamos ter uma coluna do tanho especificado em px e outra 
+                                                    fica com o resto que sobrar*/
+    grid-template-rows: 50px 
+                        500px 
+                        1fr; /*aqui define quantas linhas tem a grade
+                                                define o tamanho do cabeçalho e do rodapé e o resto
+                                                que sobrar fica no meio 1fr*/
+    grid-template-areas: 
+        "header header"
+        "menu content"
+        "footer content"; /*a grid tem 2 colunas e três linhas e aqui eu defino o que cada uma ocupa*/
+    height: 100vh;  
+                                  
+}
+
+header.header { /*uma tag header com uma classe header. Isso está definido no arquivo Header.jsx*/
+    grid-area: header; /*do grid-template-areas, diz que header.header ocupa o header*/
+}
+
+aside.menu-area { /*uma tag aside com uma classe menu-area. Isso está definido no arquivo Nav.jsx*/
+    grid-area: menu; /*do grid-template-areas, diz que aside.menu-area ocupa o menu*/
+}
+
+main.content { /*uma tag main com uma classe content. Isso está definido no arquivo Main.jsx*/
+    grid-area: content; /*do grid-template-areas, diz que main.content ocupa o menu*/
+}
+
+footer.footer { /*uma tag footer com uma classe footer. Isso está definido no arquivo Footer.jsx*/
+    grid-area: footer; /*do grid-template-areas, diz que footer.footer ocupa o footer*/
+}

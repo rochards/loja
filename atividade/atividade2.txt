@@ -1,0 +1,28 @@
+Utilizando springBoot, springMVC, REACT, tecnologias de desenvolvimento web (html, css, bootstrap, js, etc), maven, JAVA 8, json, banco de dados oracle ou mysql, git hub ou bitbucket e métodos ágeis crie uma aplicação API REST com o seguinte cenário:
+	
+Uma empresa está automatizando seus processos de vendas e precisa de um sistema com as seguintes funcionalidades:
+	- Gerenciamento de produtos.
+	- Gerenciamento de clientes.
+	- Gerenciamento de estoque.
+	- Realizar vendas (a empresa aceita, cartao de débito, crédito e dinheiro).
+	- Relatório de vendas (relatório de produtos vendidos, forma de pagamento, etc) em forma de planilha e gráfico. Os relatórios devem ser atualizados a cada 30 minutos (utilize scheduler e cron). Deve ser possível fazer o download dos relatórios.
+	- A empresa possui vendedores e gerentes, sendo assim é necessário implementar a funcionalidade de login, sendo que os vendedores tem restrições de acesso aos relatórios de vendas.
+
+
+Espera-se dessa atividade os seguintes resultados:
+	- aprendizagem de tecnologias de desenvolvimento front end, principalmente REACT;	
+	- utilização de métodos ágeis, principalmente quadro kanban;
+	- código fonte legível versionado em repositório com acesso privado;
+	- diagrama entidade relacionamento do banco de dados;
+	- diagrama relacional do banco de dados;
+	- script de create do banco de dados;
+	- utilização de todas as tecnologias citadas;
+	- documentação das APIs com swagger;
+	- um documento PDF com a documentação do projeto;
+	- realizar uma apresentação com os resultados e aprendizados obtidos;
+
+OBS:
+	- colocar uma exceção genérica
+	- não deixar o vendedor A ver o as vendas do vendedor B
+	- gerar documento para importar no swagger online
+	- gerar api swagger online, acesse:  localhost:8080/v2/api-docs

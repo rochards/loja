@@ -1,0 +1,15 @@
+aside.menu-area { /*tag aside com classe menu-area*/
+    background-color: rgba(0, 0, 0, 0.774);
+}
+
+.menu a { /*tudo que tiver a classe menu e for link (a)*/
+    display: block; /*faz cada link ficar em uma linha separada*/
+    text-decoration: none; /*retira o sublinhado dos links*/
+    color: white; /*cor do texto do link*/
+    padding: 15px; /*espaçamento superir e inferior 15px, espaçamento a partir da esquerda 45 px*/
+    font-weight: bold;
+}
+
+.menu a:hover { /*quando passar o mouse em cima desse menu*/
+    background: rgb(80, 79, 79);
+}

@@ -1,0 +1,18 @@
+div.main-body { /*div com class main*/
+    /*background-color: rgb(114, 159, 207);
+    border: 1px solid rgba(52, 101, 164, 100%);
+    margin-top: 10px; dá um espaçamento de 10px em cima
+    margin-left: 10px;
+    background-color: white;
+    margin: 5px 5px; define espaçamento: top, right, botton, left
+    border-radius: 5px;*/
+
+    margin: 30px;
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+h3 {
+    font-weight: normal;
+}

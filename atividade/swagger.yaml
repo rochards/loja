@@ -1,0 +1,875 @@
+---
+swagger: "2.0"
+info:
+  description: Utilizando o Spring Framework e seus subprojetos, desenvolver uma API REST para permitir a exposição de dados de vendas, clientes produtos e vendedores, também a inserção e atualização desses dados.
+  version: 1.0.0
+  title: 'Projeto 2 - REST API '
+  termsOfService: Terms of Service
+  contact:
+    name: Rodrigo Rocha
+    email: rodrigorochasantos@outlook.com
+  license:
+    name: Apache License 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0
+host: localhost:8080
+basePath: /
+tags:
+- name: customer-controller
+  description: Customer Controller
+- name: employee-controller
+  description: Employee Controller
+- name: product-controller
+  description: Product Controller
+- name: sale-controller
+  description: Sale Controller
+- name: user-controller
+  description: User Controller
+- name: report-controller
+  description: Report Controller
+paths:
+  /api/customer:
+    get:
+      tags:
+      - customer-controller
+      summary: lista todos os clientes
+      operationId: getAllCustomersUsingGET
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Customer'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+    post:
+      tags:
+      - customer-controller
+      summary: cadastra um novo cliente
+      operationId: addCustomerUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: customer
+        description: customer
+        required: true
+        schema:
+          $ref: '#/definitions/Customer'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Customer'
+        201:
+          description: Created
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/customer/cpf/{cpf}:
+    get:
+      tags:
+      - customer-controller
+      summary: busca o cliente pelo cpf
+      operationId: getCustomerByCpfUsingGET
+      produces:
+      - application/json
+      parameters:
+      - name: cpf
+        in: path
+        description: cpf
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Customer'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/customer/id/{id}:
+    put:
+      tags:
+      - customer-controller
+      summary: atualiza dados do cliente
+      operationId: updateCustomerUsingPUT
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: customer
+        description: customer
+        required: true
+        schema:
+          $ref: '#/definitions/Customer'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Customer'
+        201:
+          description: Created
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/customer/name/{name}:
+    get:
+      tags:
+      - customer-controller
+      summary: busca o cliente pelo nome
+      operationId: getCustomerByNameUsingGET
+      produces:
+      - application/json
+      parameters:
+      - name: name
+        in: path
+        description: name
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Customer'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/employee:
+    get:
+      tags:
+      - employee-controller
+      summary: lista todos os funcionários
+      operationId: getAllEmployeesUsingGET
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Employee'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+    post:
+      tags:
+      - employee-controller
+      summary: cadastra um novo funcionário
+      operationId: addEmployeeUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: employee
+        description: employee
+        required: true
+        schema:
+          $ref: '#/definitions/Employee'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Employee'
+        201:
+          description: Created
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/employee/cpf/{cpf}:
+    get:
+      tags:
+      - employee-controller
+      summary: busca o funcionário pelo cpf
+      operationId: getEmployeeByCpfUsingGET
+      produces:
+      - application/json
+      parameters:
+      - name: cpf
+        in: path
+        description: cpf
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Employee'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/employee/id/{id}:
+    put:
+      tags:
+      - employee-controller
+      summary: atualiza dados do funcionário
+      operationId: updateEmployeeUsingPUT
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: employee
+        description: employee
+        required: true
+        schema:
+          $ref: '#/definitions/Employee'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Employee'
+        201:
+          description: Created
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/employee/name/{name}:
+    get:
+      tags:
+      - employee-controller
+      summary: busca o funcionário pelo nome
+      operationId: getEmployeeByNameUsingGET
+      produces:
+      - application/json
+      parameters:
+      - name: name
+        in: path
+        description: name
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Employee'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/getUser:
+    get:
+      tags:
+      - user-controller
+      summary: retorna o usuário considerando o contexto
+      operationId: getUserUsingGET
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/product:
+    get:
+      tags:
+      - product-controller
+      summary: lista todos os produtos
+      operationId: getAllProductsUsingGET
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+    post:
+      tags:
+      - product-controller
+      summary: cadastra um novo produto
+      operationId: addProductUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: product
+        description: product
+        required: true
+        schema:
+          $ref: '#/definitions/Product'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Product'
+        201:
+          description: Created
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/product/id/{id}:
+    get:
+      tags:
+      - product-controller
+      summary: busca o produto por id
+      operationId: getProductByIdUsingGET
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Product'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+    put:
+      tags:
+      - product-controller
+      summary: atualiza dados do produto
+      operationId: updadeProductUsingPUT
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: product
+        description: product
+        required: true
+        schema:
+          $ref: '#/definitions/Product'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Product'
+        201:
+          description: Created
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/product/name/{name}:
+    get:
+      tags:
+      - product-controller
+      summary: busca o produto por nome
+      operationId: getProductByNameUsingGET
+      produces:
+      - application/json
+      parameters:
+      - name: name
+        in: path
+        description: name
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/product/resume/{resume}:
+    get:
+      tags:
+      - product-controller
+      summary: busca o produto pela descricao
+      operationId: getProductByResumeUsingGET
+      produces:
+      - application/json
+      parameters:
+      - name: resume
+        in: path
+        description: resume
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/sale:
+    get:
+      tags:
+      - sale-controller
+      summary: lista todos as vendas
+      operationId: getAllSalesUsingGET
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Sale'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+    post:
+      tags:
+      - sale-controller
+      summary: cadastra uma nova venda
+      operationId: addSaleUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: sale
+        description: sale
+        required: true
+        schema:
+          $ref: '#/definitions/Sale'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Sale'
+        201:
+          description: Created
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/sale/employee/cpf/{cpf}:
+    get:
+      tags:
+      - sale-controller
+      summary: busca vendas por vendedor
+      operationId: getSaleByEmployeeUsingGET
+      produces:
+      - application/json
+      parameters:
+      - name: cpf
+        in: path
+        description: cpf
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Sale'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/user:
+    post:
+      tags:
+      - user-controller
+      summary: cadastra um novo usuário
+      operationId: addUserUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: user
+        description: user
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+        201:
+          description: Created
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/user/cpf/{cpf}:
+    put:
+      tags:
+      - user-controller
+      summary: atualiza dados do usuário
+      operationId: updateUserUsingPUT
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: cpf
+        in: path
+        description: cpf
+        required: true
+        type: string
+      - in: body
+        name: user
+        description: user
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+        201:
+          description: Created
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/user/username/{username}:
+    get:
+      tags:
+      - user-controller
+      summary: busca o usuário pelo username
+      operationId: getUserByUsernameUsingGET
+      produces:
+      - application/json
+      parameters:
+      - name: username
+        in: path
+        description: username
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+  /api/report:
+    get:
+      tags:
+      - report-controller
+      summary: lista os relatórios
+      operationId: getAllReportsUsingGET
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Report'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+definitions:
+  Customer:
+    type: object
+    required:
+    - cpf
+    - id
+    - name
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: ID do cliente (Gerado automaticamente)
+      name:
+        type: string
+        example: Joaquim Silva
+        description: Nome do cliente
+      cpf:
+        type: string
+        example: "19276598430"
+        description: CPF do cliente
+      fone:
+        type: string
+        example: "34999999999"
+        description: Telefone do cliente
+      email:
+        type: string
+        example: joaquim@outlook.com
+        description: Email do cliente
+    title: Customer
+  Employee:
+    type: object
+    required:
+    - cpf
+    - id
+    - name
+    - position
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: ID do funcionário (Gerado automaticamente)
+      cpf:
+        type: string
+        example: "19276598430"
+        description: CPF do funcionário
+      name:
+        type: string
+        example: Márcio Alves
+        description: Nome do funcionário
+      fone:
+        type: string
+        example: "3499999999"
+        description: Telefone do funcionário
+      email:
+        type: string
+        example: marcio@outlook.com
+        description: Email do funcionário
+      position:
+        type: string
+        example: vendedor
+        description: Cargo do funcionário
+    title: Employee
+  Product:
+    type: object
+    required:
+    - id
+    - name
+    - price
+    - quantity
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: ID do produto (Gerado automaticamente)
+      name:
+        type: string
+        example: Smartphone
+        description: Nome do produto
+      resume:
+        type: string
+        example: Tela 5,5" full HD, Android 8.0 ...
+        description: Descrição do produto
+      price:
+        type: number
+        format: double
+        example: 1319.99
+        description: Preço do produto
+      quantity:
+        type: integer
+        format: int32
+        example: 1000
+        description: Quantidade do produto
+    title: Product
+  Sale:
+    type: object
+    required:
+    - id
+    - idCustomer
+    - idEmployee
+    - idProduct
+    - paymentMethod
+    - productPrice
+    - productQuantity
+    - salePrice
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: ID da venda (Gerado automaticamente)
+      productPrice:
+        type: number
+        format: double
+        example: 1319.99
+        description: Preço do produto
+      salePrice:
+        type: number
+        format: double
+        example: 3950.97
+        description: Valor total da venda
+      productQuantity:
+        type: integer
+        format: int32
+        example: 3
+        description: Quantidade de produtos comprados
+      descount:
+        type: number
+        format: double
+        example: 0.0
+        description: Desconto em R$ sobre o total da venda
+      paymentMethod:
+        type: string
+        example: debito/credito/boleto/dinheiro
+        description: forma de pagamento
+      dateTimeSale:
+        type: string
+        format: date-time
+        description: Data da venda (Gerado automaticamente)
+      idCustomer:
+        type: integer
+        format: int32
+      idEmployee:
+        type: integer
+        format: int32
+      idProduct:
+        type: integer
+        format: int32
+      customer:
+        $ref: '#/definitions/Customer'
+      employee:
+        $ref: '#/definitions/Employee'
+      product:
+        $ref: '#/definitions/Product'
+    title: Sale
+  User:
+    type: object
+    required:
+    - cpf
+    - manager
+    - password
+    - username
+    properties:
+      cpf:
+        type: string
+        description: CPF do usuário
+      manager:
+        type: boolean
+      username:
+        type: string
+        description: username
+      password:
+        type: string
+        description: password
+    title: User
+  Report:
+    type: object
+    required:
+    - dateTimeSale
+    - id
+    - paymentMethod
+    properties:
+      id:
+        type: integer
+        format: int32
+      dateTimeSale:
+        type: string
+        format: date-time
+        description: Data de venda
+      paymentMethod:
+        type: string
+        example: debito/credito/dinheiro
+        description: Forma de pagamento
+    title: Report

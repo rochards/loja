@@ -1,0 +1,7 @@
+footer.footer { /*tag footer marcado com a classe footer*/
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /*faz ficar no final direito da tela*/
+    padding: 0 25px; /*dá um espaçamento de 0 no sentido vetical e 25px da borda direita*/
+    background-color: white;
+}

@@ -1,0 +1,14 @@
+header.header { /*tag header com classe header*/
+    background-color: white;
+    white-space: nowrap;
+    /*box-shadow: var(--shadow);*/
+    /*foi preciso as três propriedades abaixo para alinhar o texto na vertical e horizontal*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header a { /*classe header com um link (a)*/
+    text-decoration: none; /*retira o sublinhado do link*/
+    color: black; /*cor do texto do link*/
+}
