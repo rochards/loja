@@ -1,4 +1,4 @@
-**Desenvolvimento de um sistemavendas:  Front-end em ReactJS eAPI desenvolvida com o springframework.**
+# Desenvolvimento de um sistema de vendas:  Front-end em ReactJS e API desenvolvida com o Spring Framework.
 
 O projeto se desenvolveu a partir de um cenário onde existia uma empresa de vendas que possuía vendedores  e  gerentes  e  produtos  a  serem  vendidos  para  os  clientes  e  havia  a  necessidade  do  sistemarealizar vendas e gerar relatórios.
 A proposta dessa atividade visa complementação do plano de formação de estágio.
